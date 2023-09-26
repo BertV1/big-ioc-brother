@@ -9,18 +9,19 @@
 # citizenslab investigation
 
 
-ioc_dom_list = open(r'amnesty_tech.txt','r')
+amnesty = open(r'amnesty_tech.txt','r')
+meta = open(r'meta.txt','r')
 
 
 def get_doms(a_file):
+    iocs_list = []
     iocs = a_file.readlines()
-    x=0
     for ioc in iocs:
         ioc = ioc.strip()
-        if x < 10:
-            print(ioc)
-        x+=1
-get_doms(ioc_dom_list)
+        iocs_list.append(ioc)
+    return iocs_list
+
+amnesty_ioc_list = get_doms(amnesty)
 
 # depending on which format the original list has
 # function to parse them
