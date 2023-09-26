@@ -15,11 +15,11 @@ meta = open(r'meta.txt','r')
 
 def get_doms(a_file):
     iocs_list = []
-    iocs = a_file.readlines()
-    for ioc in iocs:
-        ioc = ioc.strip()
-        ioc = ioc.replace('[','').replace(']','')
-        iocs_list.append(ioc)
+    pot_iocs = a_file.readlines()
+    for pot_ioc in pot_iocs:
+        ioc = pot_ioc.strip()
+        pot_ioc = pot_ioc.replace('[','').replace(']','')
+        iocs_list.append(pot_ioc)
     return iocs_list
 
 amnesty_ioc_list = get_doms(amnesty)
