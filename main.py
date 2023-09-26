@@ -18,10 +18,14 @@ def get_doms(a_file):
     iocs = a_file.readlines()
     for ioc in iocs:
         ioc = ioc.strip()
+        ioc = ioc.replace('[','').replace(']','')
         iocs_list.append(ioc)
     return iocs_list
 
 amnesty_ioc_list = get_doms(amnesty)
+meta_ioc_list = get_doms(meta)
+
+
 
 # depending on which format the original list has
 # function to parse them
