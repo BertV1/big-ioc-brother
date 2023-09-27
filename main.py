@@ -29,4 +29,13 @@ ioc_sources = glob.glob("*.txt")
 ioc_lists = []
 for i, ioc_source in enumerate(ioc_sources):
     ioc_lists.append(get_doms_2(ioc_source))
-print(len(ioc_lists))
+
+master_list = []
+for list in ioc_lists:
+    master_list += list
+unique_master_list = set(master_list)
+unique_master_list = sorted(unique_master_list)
+
+with open(r'ioc_master_list.txt','a') as f:
+    for ioc_dom in unique_master_list:
+        f.write(ioc_dom+'\n')
